@@ -16,6 +16,7 @@
 | 8.  | Теория формальных языков          |
 
 ---
+<img width="816" height="1096" alt="screenshot" src="https://github.com/user-attachments/assets/12c954a6-47fa-4660-bf07-f79db567794e" />
 
 ## 🧠 Система обучения/ технические детали
 ### Learn-App
