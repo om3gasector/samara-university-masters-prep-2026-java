@@ -1,4 +1,7 @@
 # SAMARA UNIVERSITY masters-prep: java 2026
+![License](https://img.shields.io/github/license/om3gasector/samara-university-masters-prep-2026-java)
+![Status](https://img.shields.io/badge/status-active-success)
+![Year](https://img.shields.io/badge/year-2026-blue)
 
 Подготовка к поступлению в **Самарский национальный исследовательский университет имени академика С.П. Королева** на магистерскую программу:  
 **"Информатика и вычислительная техника: Разработка высоконагруженных приложений; Java-инженерия"**
