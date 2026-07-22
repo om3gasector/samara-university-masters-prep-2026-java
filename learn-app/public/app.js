@@ -16,9 +16,11 @@
   const reloadBtn = document.getElementById("reload");
   const skillSelect = document.getElementById("skill");
   const subfolderSelect = document.getElementById("subfolder");
+  const onlyMainCheckbox = document.getElementById("onlyMain");
 
   const STORAGE_SKILL = "learn-app-skill";
   const STORAGE_SUB = "learn-app-subfolder";
+  const STORAGE_ONLY_MAIN = "learn-app-only-main";
 
   const ERR_SERVER =
     "Нет ответа от сервера. Запустите в папке learn-app команду python server.py и откройте в браузере именно http://127.0.0.1:8765 (не файл index.html и не только «localhost», если не открывается).";
@@ -132,6 +134,9 @@
     const q = filterInput.value.trim();
     if (q) {
       params.set("prefix", q);
+    }
+    if (onlyMainCheckbox.checked) {
+      params.set("only_main", "true");
     }
     return `/api/cards?${params.toString()}`;
   }
@@ -277,8 +282,14 @@
   });
 
   reloadBtn.addEventListener("click", loadDeck);
+  
   filterInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") loadDeck();
+  });
+
+  onlyMainCheckbox.addEventListener("change", () => {
+    localStorage.setItem(STORAGE_ONLY_MAIN, onlyMainCheckbox.checked ? "true" : "false");
+    loadDeck();
   });
 
   skillSelect.addEventListener("change", async () => {
@@ -304,6 +315,12 @@
       setError(ERR_FILE);
       return;
     }
+    
+    const savedOnlyMain = localStorage.getItem(STORAGE_ONLY_MAIN);
+    if (savedOnlyMain === "true") {
+      onlyMainCheckbox.checked = true;
+    }
+
     setLoading(true);
     try {
       await loadSkills();

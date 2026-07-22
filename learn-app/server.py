@@ -56,6 +56,7 @@ def extract_cards(md: str, rel_path: str) -> list[dict]:
                     "front": title_clean,
                     "back": body,
                     "source": rel_path.replace("\\", "/"),
+                    "level": _lvl,  # уровень заголовка (4 — основной, 5 — подвопрос)
                 }
             )
 
@@ -161,7 +162,7 @@ def list_subfolders(skill: str) -> list[str]:
     return out
 
 
-def build_deck(skill: str, subfolder: str | None) -> list[dict]:
+def build_deck(skill: str, subfolder: str | None, only_main: bool = False) -> list[dict]:
     sub = (subfolder or "").strip()
     if sub:
         scan_root = safe_subfolder_dir(skill, sub)
@@ -178,6 +179,9 @@ def build_deck(skill: str, subfolder: str | None) -> list[dict]:
         except OSError:
             continue
         for card in extract_cards(text, rel):
+            # Если включен режим "только основные вопросы" — оставляем только уровень 4
+            if only_main and card.get("level", 0) != 4:
+                continue
             deck.append(card)
     return deck
 
@@ -218,6 +222,7 @@ class Handler(SimpleHTTPRequestHandler):
             prefix = (qs.get("prefix", [""])[0] or "").strip().lower()
             skill = (qs.get("skill", [""])[0] or "").strip()
             subfolder = (qs.get("subfolder", [""])[0] or "").strip()
+            only_main = qs.get("only_main", [""])[0] == "true"
 
             if not skill:
                 self._send_json(
@@ -232,7 +237,7 @@ class Handler(SimpleHTTPRequestHandler):
                 self._send_json({"cards": [], "error": "Неизвестный подкаталог."}, status=400)
                 return
 
-            deck = build_deck(skill, subfolder or None)
+            deck = build_deck(skill, subfolder or None, only_main)
             if prefix:
                 deck = [
                     c
