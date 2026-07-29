@@ -34,7 +34,8 @@
 
 UPD: добавлен чекбокс определяющий полноту колоды (только основные вопросы/все вопросы и подвопросы(раздела))
 
-<img width="810" height="1124" alt="image" src="https://github.com/user-attachments/assets/963df61a-1e1a-4047-b7f5-8fb2a279902f" />
+<img width="812" height="1131" alt="image" src="https://github.com/user-attachments/assets/84e39bd2-2294-4910-8833-134a642b245a" />
+
 
 
 
