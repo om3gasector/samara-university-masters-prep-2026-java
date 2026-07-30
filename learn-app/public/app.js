@@ -287,8 +287,9 @@
     if (e.key === "Enter") loadDeck();
   });
 
-  onlyMainCheckbox.addEventListener("change", () => {
-    localStorage.setItem(STORAGE_ONLY_MAIN, onlyMainCheckbox.checked ? "true" : "false");
+  onlyMainCheckbox.addEventListener("change", function(e) {
+    const isChecked = this.checked;
+    localStorage.setItem(STORAGE_ONLY_MAIN, isChecked ? "true" : "false");
     loadDeck();
   });
 

@@ -1,0 +1,36 @@
+/**
+ * Найти индекс начала наиболее длинной непрерывной
+ * последовательности одинаковых чисел в целочисленном массиве.
+ */
+public class Task5 {
+
+    public static void main(String[] args) {
+        int[] arr = { 3, 3, 3, 1, 1, 1, 2, 2, 5, 5, 5, 5 };
+
+        int result = findLongestIndex(arr);
+        System.out.println(result);
+    }
+
+    public static int findLongestIndex(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return -1;
+        }
+
+        int maxLength = 0;
+        int startIndex = -1;
+        int curStart = 0;
+
+        for (int i = 1; i <= arr.length; i++) {
+            if (i == arr.length || arr[i] != arr[i - 1]) {
+                int len = i - curStart;
+                if (len > maxLength) {
+                    maxLength = len;
+                    startIndex = curStart;
+                }
+                curStart = i;
+            }
+        }
+
+        return startIndex;
+    }
+}
