@@ -1,69 +1,79 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Повторение</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
-  <style>
-    *{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0d1117;color:#e6edf3;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.app{max-width:42rem;margin:0 auto;padding:1.5rem 1rem 3rem}.toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:1.5rem}.toolbar-row{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;width:100%}.toolbar-row-actions{display:flex;flex-wrap:nowrap;gap:16px;align-items:center;justify-content:space-between;width:100%}.toolbar label{display:flex;flex-direction:column;gap:.25rem;font-size:.7rem;font-weight:400;color:#8b949e;letter-spacing:.02em;text-transform:uppercase}.toolbar input,.toolbar select{min-height:2rem;padding:.3rem 1.8rem .3rem .5rem;border:1px solid #30363d;border-radius:6px;background:#161b22;color:#e6edf3;cursor:pointer;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:.85rem;font-weight:400;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b949e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right .5rem center;background-size:1rem}.toolbar input{background-image:none;padding:.3rem .5rem;cursor:text}.toolbar select:disabled{cursor:not-allowed;opacity:.65}.field-narrow{flex:0 0 auto}.field-narrow select{min-width:8rem;width:auto;padding-right:2rem}.field-grow{flex:1 1 10rem;min-width:8rem}.field-grow input{width:100%;min-width:0}.checkbox-label{display:flex!important;flex-direction:row!important;align-items:center;gap:.4rem;font-size:.75rem;font-weight:400;color:#8b949e;cursor:pointer;white-space:nowrap;flex-shrink:0;padding:0;text-transform:none;letter-spacing:0}.checkbox-label input[type="checkbox"]{appearance:checkbox!important;-webkit-appearance:checkbox!important;-moz-appearance:checkbox!important;min-width:1rem!important;min-height:1rem!important;width:1rem!important;height:1rem!important;cursor:pointer!important;accent-color:#58a6ff!important;margin:0!important;padding:0!important;opacity:1!important;visibility:visible!important;display:inline-block!important;position:relative!important;background:transparent!important;border:none!important;border-radius:0!important}.checkbox-label input[type="checkbox"]:checked{accent-color:#58a6ff!important}.toolbar-row-actions button{flex-shrink:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:.85rem;font-weight:400;padding:.35rem .7rem}.error{color:#f85149;font-size:.9rem;margin:0 0 1rem;font-weight:400}button{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-weight:400;cursor:pointer;border-radius:6px;border:1px solid #30363d;background:#161b22;color:#e6edf3;padding:.5rem .85rem;transition:border-color .15s ease}button:hover{border-color:#58a6ff}.loading,.empty{color:#8b949e;font-weight:400}.hidden{display:none!important}.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:1.25rem 1.25rem 1.5rem}.meta{font-size:.75rem;font-weight:400;color:#8b949e;margin:0 0 1rem;word-break:break-all;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}.label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#8b949e;margin:0 0 .35rem}.front{font-size:1.15rem;font-weight:600;margin-bottom:1rem;line-height:1.5}.front code{font-size:.9em;font-weight:600}.reveal{width:100%;padding:.65rem;margin-bottom:1rem;background:#21262d;border-color:#58a6ff;color:#58a6ff;font-weight:600}.back-wrap{margin-bottom:1rem}.back{font-size:.95rem;font-weight:400;color:#e6edf3;line-height:1.6}.markdown-body>:first-child{margin-top:0}.markdown-body>:last-child{margin-bottom:0}.markdown-body p{margin:.5em 0}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4{margin:.85em 0 .4em;font-weight:600;line-height:1.4;border-bottom:1px solid #30363d;padding-bottom:.2em}.markdown-body h1{font-size:1.25rem}.markdown-body h2{font-size:1.1rem}.markdown-body h3,.markdown-body h4{font-size:1rem;border-bottom:none}.markdown-body ul,.markdown-body ol{margin:.5em 0;padding-left:1.35rem}.markdown-body li{margin:.2em 0}.markdown-body blockquote{margin:.6em 0;padding:.35em 0 .35em 1em;border-left:4px solid #58a6ff;color:#8b949e}.markdown-body code{font-family:'JetBrains Mono','Cascadia Code','Fira Code',monospace;font-size:.88em;background:#21262d;padding:.12em .35em;border-radius:4px;border:1px solid #30363d}.markdown-body pre{margin:.65em 0;padding:.75rem 1rem;overflow:auto;font-size:.82rem;line-height:1.5;background:#0d1117;border:1px solid #30363d;border-radius:8px}.markdown-body pre code{background:0 0;border:none;padding:0;font-size:inherit;font-family:'JetBrains Mono','Cascadia Code','Fira Code',monospace}.markdown-body hr{margin:1rem 0;border:none;border-top:1px solid #30363d}.markdown-body a{color:#58a6ff;text-decoration:none;font-weight:500}.markdown-body a:hover{text-decoration:underline}.markdown-body table{width:100%;border-collapse:collapse;margin:.65em 0;font-size:.88rem}.markdown-body th,.markdown-body td{border:1px solid #30363d;padding:.4em .55em;text-align:left}.markdown-body th{background:#21262d;font-weight:600}.markdown-body img{max-width:100%;height:auto;border-radius:6px}.markdown-body strong{color:#f0f3f6;font-weight:600}.actions{display:flex;gap:.75rem}.actions .btn{flex:1;padding:.65rem;font-weight:600;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}.btn.good{border-color:#3fb950;color:#3fb950}.btn.bad{border-color:#f85149;color:#f85149}.footer{margin-top:1.5rem;font-size:.8rem;font-weight:400;color:#8b949e}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Повторение</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Подсветка синтаксиса: тема GitHub Dark -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    
+    <!-- Библиотека для парсинга Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Санитайзер для безопасности -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+    <!-- Библиотека подсветки синтаксиса -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
-  <div class="app">
-    <header class="header">
-      <div class="toolbar">
-        <div class="toolbar-row">
-          <label class="field-narrow">Навык
-            <select id="skill"></select>
-          </label>
-          <label class="field-narrow">Подкаталог
-            <select id="subfolder"></select>
-          </label>
-          <label class="field-grow">Фильтр по пути / заголовку
-            <input type="search" id="filter" placeholder="например: 5." />
-          </label>
+    <div class="app">
+        <div class="header">
+            <div class="toolbar">
+                <div class="toolbar-row">
+                    <label class="field-narrow">
+                        Навык
+                        <select id="skill"></select>
+                    </label>
+                    <label class="field-narrow">
+                        Подкаталог
+                        <select id="subfolder" disabled></select>
+                    </label>
+                    <label class="field-grow">
+                        Фильтр по пути / заголовку
+                        <input type="text" id="filter" placeholder="">
+                    </label>
+                </div>
+                <div class="toolbar-row-actions">
+                    <button id="reload">Обновить колоду</button>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="onlyMain">
+                        Только основные вопросы
+                    </label>
+                </div>
+            </div>
+            <div id="error" class="error hidden"></div>
+            <div id="loading" class="loading hidden">Загрузка…</div>
         </div>
-        <div class="toolbar-row toolbar-row-actions">
-          <button type="button" id="reload">Обновить колоду</button>
-          <label class="checkbox-label">
-            <input type="checkbox" id="onlyMain" />
-            Только основные вопросы
-          </label>
-        </div>
-      </div>
-    </header>
 
-    <main class="main" id="main">
-      <p class="loading hidden" id="loading">Загрузка…</p>
-      <p class="error hidden" id="error"></p>
-      <section class="card hidden" id="card">
-        <p class="meta" id="meta"></p>
-        <div class="front-wrap">
-          <p class="label">Вопрос</p>
-          <div class="front" id="front"></div>
-        </div>
-        <button type="button" class="reveal" id="reveal">Показать ответ</button>
-        <div class="back-wrap hidden" id="backWrap">
-          <p class="label">Ответ</p>
-          <div class="back markdown-body" id="back"></div>
-        </div>
-        <div class="actions hidden" id="actions">
-          <button type="button" class="btn good" id="good">Помню</button>
-          <button type="button" class="btn bad" id="bad">Повторить</button>
-        </div>
-      </section>
-      <p class="empty hidden" id="empty">Карточек нет. Проверь фильтр или добавь заголовки ## / ### в заметки.</p>
-    </main>
+        <div id="card" class="card hidden">
+            <div id="meta" class="meta"></div>
+            
+            <div class="label">Вопрос</div>
+            <div id="front" class="front"></div>
+            
+            <button id="reveal" class="reveal">Показать ответ</button>
+            
+            <div id="backWrap" class="back-wrap hidden">
+                <div class="label">Ответ</div>
+                <div id="back" class="back markdown-body"></div>
+            </div>
 
-    <footer class="footer">
-      <span id="counter"></span>
-    </footer>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js"></script>
-  <script src="app.js?v=3"></script>
+            <div id="actions" class="actions hidden">
+                <button id="good" class="btn good">Помню</button>
+                <button id="bad" class="btn bad">Повторить</button>
+            </div>
+        </div>
+
+        <div id="empty" class="empty hidden">
+            Карточек нет. Проверь фильтр или добавь заголовки ## / ### в заметки.
+        </div>
+
+        <div class="footer">
+            <span id="counter"></span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
