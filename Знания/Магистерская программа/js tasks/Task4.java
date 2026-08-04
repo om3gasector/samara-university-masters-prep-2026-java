@@ -12,11 +12,11 @@ public class Task4 {
                 { 13, 14, 15, 16 }
         };
 
-        double result = underDiagonalsRight(matrix);
+        double result = function(matrix);
         System.out.println(result);
     }
 
-    public static double underDiagonalsRight(int[][] matrix) {
+    public static double function(int[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix.length != matrix[0].length) {
             return 0;
         }

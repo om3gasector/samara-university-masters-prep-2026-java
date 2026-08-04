@@ -8,11 +8,11 @@ public class Task8 {
 
     public static void main(String[] args) {
         double[] arr = { 5.2, 1.8, 9.4, 3.6, 7.1 };
-        double result = median(arr);
+        double result = function(arr);
         System.out.println(result);
     }
 
-    public static double median(double[] arr) {
+    public static double function(double[] arr) {
         if (arr == null || arr.length == 0) {
             return 0;
         }

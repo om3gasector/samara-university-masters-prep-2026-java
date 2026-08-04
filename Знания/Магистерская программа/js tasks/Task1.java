@@ -6,11 +6,11 @@ public class Task1 {
 
     public static void main(String[] args) {
         int[] arr = { 3, 3, 3, 1, 1, 1, 2, 2, 5, 5, 5, 5 };
-        int result = findShortestSequence(arr);
+        int result = function(arr);
         System.out.println(result);
     }
 
-    public static int findShortestSequence(int[] arr) {
+    public static int function(int[] arr) {
         if (arr == null || arr.length < 2) {
             return -1;
         }

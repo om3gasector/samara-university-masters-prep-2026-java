@@ -191,20 +191,20 @@ PreparedStatement — предварительно скомпилированн�
 **Стандартная последовательность работы с JDBC:**
 
 1. **Загрузка драйвера** (с Java 6 — автоматически через ServiceLoader):
-```
+```javascript
 Class.forName("org.postgresql.Driver"); // для старых версий
 ```
 2. **Установка соединения:**
-```
+```javascript
 Connection conn = DriverManager.getConnection(
 	"jdbc:postgresql://localhost:5432/mydb", "user", "password");
 ```
 3. **Создание Statement или PreparedStatement:**
-```
+```javascript
 Statement stmt = conn.createStatement();
 ```
 4. **Выполнение SQL-запроса:**
-```
+```javascript
 ResultSet rs = stmt.executeQuery("SELECT * FROM users");
 ```
 
@@ -223,7 +223,7 @@ ResultSet rs = stmt.executeQuery("SELECT * FROM users");
 - **Читаемость кода:** отделение SQL от значений.
 
 **Пример:**
-```
+```javascript
 String sql = "INSERT INTO users (name, email) VALUES (?, ?)";
 PreparedStatement pstmt = conn.prepareStatement(sql);
 pstmt.setString(1, "Иванов");
@@ -311,7 +311,7 @@ XML-документ можно создать в любом текстовом 
 - Библиотеки: Jackson XML, XStream.
 
 **Пример XML-документа (конфигурация сервера):**
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <server>
     <name>WebServer</name>
@@ -380,7 +380,7 @@ XML Schema (XSD) — современный стандарт, написан н�
 **Пример DTD:**
 
 Файл `library.dtd`:
-```
+```dtd
 <!ELEMENT library (book+)>
 <!ELEMENT book (title, author, year)>
 <!ATTLIST book isbn CDATA #REQUIRED>
@@ -394,7 +394,7 @@ XML Schema (XSD) — современный стандарт, написан н�
 **Пример XML Schema (XSD):**
 
 Файл `library.xsd`:
-```
+```xsd
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="library">
@@ -416,7 +416,7 @@ XML Schema (XSD) — современный стандарт, написан н�
 </xs:schema>
 ```
 Подключение в XML:
-```
+```xml
 <library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="library.xsd">
 ```
@@ -471,7 +471,7 @@ StAX занимает промежуточную позицию. Работае�
 
 DOM загружает весь файл в оперативную память. С ним можно работать как с привычной структурой данных: искать элементы, добавлять новые теги или удалять узлы.
 
-```
+```python
 import xml.dom.minidom
 
 # Загружаем и парсим весь XML-документ в память
@@ -494,7 +494,7 @@ for item in items:
 
 SAX работает как поток событий. Он не создает структуру в памяти. Вместо этого вы задаете класс-обработчик с методами, которые вызываются в моменты, когда парсер натыкается на открывающий тег, текст внутри него или закрывающий тег.
 
-```
+```python
 import xml.sax
 
 # Создаем обработчик событий
@@ -738,14 +738,14 @@ JSP-страница — это файл с расширением `.jsp`, со
 
 **Способ 1. Директива page с атрибутом errorPage:**  
 На странице, где может возникнуть ошибка, указывается:
-```js
+```jsp
 <%@ page errorPage="error.jsp" %>
 ```
 При возникновении неперехваченного исключения контейнер перенаправляет запрос на указанную страницу.
 
 **Способ 2. Страница ошибки с isErrorPage="true":**  
 На целевой странице указывается:
-```js
+```jsp
 <%@ page isErrorPage="true" %>
 ```
 Это даёт доступ к неявному объекту `exception` (тип Throwable), содержащему информацию об ошибке. Можно вывести сообщение: `<%= exception.getMessage() %>`.
@@ -770,7 +770,7 @@ JSP-страница может содержать следующие виды �
 **5. Пользовательские теги (custom tags) и JSTL:**  
 Библиотеки тегов, заменяющие скриптлеты (рассматриваются в вопросе 5.11).
 ##### 5.9-4 ==Пример JSP-страницы==
-```
+```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage="error.jsp" %>
 <%@ page import="java.util.Date" %>
@@ -797,7 +797,7 @@ JSP-страница может содержать следующие виды �
 Директива `<%@ include %>` выполняет **статическую вставку** содержимого другого файла в текущую JSP-страницу. Вставка происходит на этапе трансляции JSP в сервлет, до компиляции.
 
 **Синтаксис:**
-```
+```jsp
 <%@ include file="путь_к_файлу" %>
 ```
 **Как работает:**  
@@ -805,7 +805,7 @@ JSP-страница может содержать следующие виды �
 
 **Типичное применение:**  
 Подключение общих частей страниц — заголовков, подвалов, меню навигации:
-```
+```jsp
 <%@ include file="header.jsp" %>
 <!-- основное содержимое -->
 <%@ include file="footer.jsp" %>
@@ -828,11 +828,11 @@ JSP предоставляет девять предопределённых (н
 Тег `<jsp:include>` выполняет **динамическую вставку** содержимого другого ресурса. В отличие от директивы `include`, вставка происходит во время выполнения запроса.
 
 **Синтаксис:**
-```
+```jsp
 <jsp:include page="URL_ресурса" />
 ```
 или с передачей параметров:
-```
+```jsp
 <jsp:include page="URL_ресурса">
     <jsp:param name="имя" value="значение" />
 </jsp:include>
@@ -844,11 +844,11 @@ JSP предоставляет девять предопределённых (н
 Тег `<jsp:forward>` передаёт обработку запроса другому ресурсу. Текущая JSP-страница прекращает вывод, и управление полностью переходит к указанному ресурсу. Клиент не видит смены URL — это серверное перенаправление.
 
 **Синтаксис:**
-```
+```jsp
 <jsp:forward page="URL_ресурса" />
 ```
 или с параметрами:
-```
+```jsp
 <jsp:forward page="URL_ресурса">
     <jsp:param name="имя" value="значение" />
 </jsp:forward>
@@ -860,14 +860,14 @@ JSP предоставляет девять предопределённых (н
 JSP предоставляет три стандартных действия для работы с JavaBeans — классами, удовлетворяющими соглашению (конструктор без параметров, геттеры/сеттеры).
 
 **`<jsp:useBean>`** — объявляет или находит экземпляр бина:
-```
+```jsp
 <jsp:useBean id="user" class="com.example.User" scope="session" />
 ```
 
 Если бин с таким id существует в указанной области — используется существующий, иначе создаётся новый.
 
 **`<jsp:setProperty>`** — устанавливает свойства бина, в том числе из параметров запроса:
-```
+```java
 <jsp:setProperty name="user" property="username" value="Иван" />
 <jsp:setProperty name="user" property="*" /> <!-- автоматическое соответствие -->
 ```
@@ -875,7 +875,7 @@ JSP предоставляет три стандартных действия д
 При `property="*"` контейнер сопоставляет параметры запроса с одноимёнными свойствами бина.
 
 **`<jsp:getProperty>`** — читает свойство бина и выводит его:
-```
+```java
 <jsp:getProperty name="user" property="username" />
 ```
 ##### 5.10-6 ==Взаимодействие JSP с HTML-формами. Примеры==
@@ -884,7 +884,7 @@ HTML-форма отправляет данные на сервер методо
 **Стандартный сценарий обработки формы:**
 
 **Форма (HTML/JSP):**
-```
+```jsp
 <form action="process.jsp" method="post">
     Имя: <input type="text" name="username" />
     Email: <input type="email" name="email" />
@@ -893,7 +893,7 @@ HTML-форма отправляет данные на сервер методо
 ```
 
 **Обработчик (process.jsp):**
-```
+```jsp
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     String username = request.getParameter("username");
@@ -953,7 +953,7 @@ JSP-страницы без Java-кода. Только отображение �
 
 **Что заменяет EL:**  
 Вместо громоздкого:
-```
+```jsp
 <%= ((User) session.getAttribute("user")).getName() %>
 ```
 Пишется:
@@ -1065,7 +1065,7 @@ Custom tags были популярны до появления JSTL. Сейча
 ##### 5.11-8 ==Примеры использования JSTL (JavaServer Pages Standard Tag Library)==
 **Пример 1: Вывод списка товаров без скриптлетов:**
 
-```
+```jsp
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <table>
     <tr><th>Название</th><th>Цена</th></tr>
@@ -1216,7 +1216,7 @@ Object, Array, String, Number, Date, Math, JSON, RegExp.
 
 **Функции-конструкторы** — функции, предназначенные для создания множества однотипных объектов. Вызываются с `new`. Соглашение: имя с большой буквы.
 
-```
+```js
 function Person(name, age) {
     this.name = name;
     this.age = age;
@@ -1249,7 +1249,7 @@ JavaScript использует **прототипное наследовани
 - class (ES6) — синтаксический сахар над прототипным наследованием.
 
 **Установка через конструктор:**
-```
+```js
 function Animal(name) { this.name = name; }
 Animal.prototype.say = function() { console.log(this.name); };
 function Dog(name, breed) {
@@ -1261,7 +1261,7 @@ Dog.prototype.constructor = Dog;
 ```
 ##### 5.13-5 ==Выбрасывание и обработка исключений (JavaScript)==
 **Выбрасывание исключения:**
-```
+```js
 throw new Error("Сообщение");
 throw "Строка-ошибка"; // можно, но плохая практика
 throw { message: "Ошибка", code: 404 };
@@ -1274,7 +1274,7 @@ throw { message: "Ошибка", code: 404 };
 - RangeError — выход за допустимый диапазон.
 
 **Обработка:**
-```
+```js
 try {
     // потенциально опасный код
 } catch (e) {
@@ -1288,7 +1288,7 @@ try {
 **Массив в JavaScript** — это объект с числовыми индексами и автоматически обновляемым свойством `length`. Не фиксированного размера, может содержать элементы любых типов.
 
 **Создание:**
-```
+```js
 const arr = [1, 2, 3];
 const arr2 = new Array(10); // массив длины 10
 ```
@@ -1344,14 +1344,14 @@ Object, Array, String, Number, Date, Math, RegExp, Function, Error и др. Не
 **window** — глобальный объект, представляющий вкладку или окно браузера. Все глобальные переменные и функции — его свойства и методы. `window.document` — то же, что `document`.
 
 **Создание нового окна:**
-```
+```js
 const newWin = window.open("https://example.com", "_blank", "width=500,height=400");
 ```
 
 Параметры: URL, имя окна (специальное или `_blank`), строка с параметрами окна (размеры, полосы прокрутки).
 
 **Закрытие окна:**
-```
+```js
 newWin.close(); // закрыть созданное окно
 window.close(); // закрыть текущее (работает только на окнах, открытых скриптом)
 ```
@@ -1387,12 +1387,12 @@ JavaScript — однопоточный язык. Настоящих поток�
 - `document.querySelectorAll("div.class")` — все по CSS-селектору.
 
 **Прямая запись в документ:**
-```
+```js
 document.write("<h1>Текст</h1>");
 ```
 
 Выводит HTML в текущую позицию парсинга. Если вызван после полной загрузки страницы — перезаписывает весь документ. Считается устаревшим. Вместо него используют манипуляции с DOM:
-```
+```js
 const div = document.createElement("div");
 div.textContent = "Привет";
 document.body.appendChild(div);
@@ -1405,7 +1405,7 @@ document.body.appendChild(div);
 - Через свойство DOM-элемента: `element.onclick = function() {}`.
 - Через addEventListener (рекомендуемый):
 
-```
+```js
 element.addEventListener("click", function(event) {
     console.log(event.target); // элемент, на котором сработало событие
 });
@@ -1430,14 +1430,14 @@ element.addEventListener("click", function(event) {
 - `form.elements.myInput` — элемент с name="myInput".
 
 **Чтение и установка значений:**
-```
+```js
 const val = form.elements.myInput.value;
 form.elements.myCheckbox.checked; // для чекбоксов
 form.elements.mySelect.selectedIndex; // для выпадающих списков
 ```
 
 **Событие submit:**
-```
+```js
 form.addEventListener("submit", function(event) {
     event.preventDefault(); // отменить отправку для валидации
     // проверка данных
@@ -1450,14 +1450,14 @@ form.addEventListener("submit", function(event) {
 Гиперссылки (`<a href="...">`) можно контролировать из JavaScript.
 
 **Программный переход:**
-```
+```js
 window.location.href = "https://example.com"; // переход с сохранением в истории
 window.location.replace("https://example.com"); // переход без сохранения в истории
 window.location.reload(); // перезагрузка страницы
 ```
 
 **Перехват клика по ссылке:**
-```
+```js
 document.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", function(event) {
         event.preventDefault(); // отменить переход
