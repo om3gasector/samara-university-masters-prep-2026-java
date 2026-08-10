@@ -1,4 +1,5 @@
-public class Task {
+public class Task { // сложность алгоритма: время O(n²), память O(n²) — каждый элемент ровно один
+                    // раз
     public static void main(String[] args) {
         int[][] matrix = {
                 { 1, 2, 3, 4 },
