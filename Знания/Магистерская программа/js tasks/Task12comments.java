@@ -6,7 +6,8 @@
 // Импортируем HashSet — коллекцию для хранения уникальных элементов
 import java.util.HashSet;
 
-public class Task12comments {
+public class Task12comments { // сложность алгоритма: время O(h), память O(h) — h — высота дерева, HashSet
+                              // предков
 
     // Класс узла бинарного дерева
     static class Node {

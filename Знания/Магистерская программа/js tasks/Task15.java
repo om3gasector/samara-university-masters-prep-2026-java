@@ -2,8 +2,7 @@
  * Разбить массив целых положительных чисел на два массива так,
  * чтобы разность сумм элементов двух получившихся массивов была минимальна.
  */
-public class Task15 {
-
+public class Task15 { // сложность алгоритма: время O(n × sum), память O(sum) — задача о рюкзаке
     public static void main(String[] args) {
         int[] arr = { 1, 6, 11, 5 };
         System.out.println(minDiff(arr));

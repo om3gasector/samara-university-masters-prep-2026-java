@@ -5,7 +5,8 @@
  */
 import java.util.HashSet;
 
-public class Task12 {
+public class Task12 { // сложность алгоритма: время O(h), память O(h) — h — высота дерева, HashSet
+                      // предков
 
     static class Node {
         int value;
