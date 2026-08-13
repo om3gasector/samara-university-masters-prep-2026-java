@@ -5,7 +5,7 @@
 public class Task14 { // сложность алгоритма: время O(n²), память O(n) — динамическое программирование
 
     public static void main(String[] args) {
-        int[] arr = { 3, 1, 4, 2, 5, 3, 7 };
+        int[] arr = { 3, 1, 4, 2, 5 };
         int[] result = longest(arr);
         System.out.println("Длина: " + result.length);
         for (int num : result)
@@ -34,10 +34,15 @@ public class Task14 { // сложность алгоритма: время O(n²
                 maxIdx = i;
         }
 
-        int[] result = new int[dp[maxIdx]];
-        for (int i = result.length - 1, cur = maxIdx; i >= 0; i--, cur = prev[cur])
-            result[i] = arr[cur];
+        int length = dp[maxIdx];
+        int[] result = new int[length];
+        int cur = maxIdx;
 
+        for (int i = length - 1; i >= 0; i--) {
+            result[i] = arr[cur]; // записываем текущий элемент цепочки
+            cur = prev[cur]; //
+
+        }
         return result;
     }
 }

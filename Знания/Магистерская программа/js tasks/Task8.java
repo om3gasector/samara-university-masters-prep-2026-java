@@ -14,9 +14,6 @@ public class Task8 { // сложность алгоритма: время O(n²)
     }
 
     public static double function(double[] arr) {
-        if (arr == null || arr.length == 0) {
-            return 0;
-        }
 
         double[] sorted = arr.clone();
 
@@ -33,7 +30,7 @@ public class Task8 { // сложность алгоритма: время O(n²)
         int n = sorted.length;
         int mid = n / 2;
 
-        if (n % 2 != 0) {
+        if (n % 2 == 1) {
             return sorted[mid];
         } else {
             return (sorted[mid - 1] + sorted[mid]) / 2.0;

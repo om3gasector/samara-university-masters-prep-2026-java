@@ -5,12 +5,10 @@
 public class Task15 { // сложность алгоритма: время O(n × sum), память O(sum) — задача о рюкзаке
     public static void main(String[] args) {
         int[] arr = { 1, 6, 11, 5 };
-        System.out.println(minDiff(arr));
+        System.out.println(function(arr));
     }
 
-    public static int minDiff(int[] arr) {
-        if (arr == null || arr.length == 0)
-            return 0;
+    public static int function(int[] arr) {
 
         int total = 0;
         for (int num : arr)
@@ -27,14 +25,14 @@ public class Task15 { // сложность алгоритма: время O(n �
             }
         }
 
-        int sum1 = 0;
+        int sum = 0;
         for (int s = target; s >= 0; s--) {
             if (dp[s]) {
-                sum1 = s;
+                sum = s;
                 break;
             }
         }
 
-        return Math.abs(total - 2 * sum1);
+        return total - 2 * sum;
     }
 }
